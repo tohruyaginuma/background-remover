@@ -9,10 +9,9 @@ type SettingsPanelProps = {
 };
 
 const COMPRESSION_OPTIONS: { label: string; value: CompressionLevel }[] = [
-  { label: "Lossless", value: "lossless" },
+  { label: "Maximum (JPG 100%)", value: "max" },
   { label: "Soft (90%)", value: "soft" },
   { label: "Medium (80%)", value: "medium" },
-  { label: "Hard (70%)", value: "hard" },
 ];
 
 export const SettingsPanel = ({ settings, onChange }: SettingsPanelProps) => {

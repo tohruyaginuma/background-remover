@@ -28,15 +28,17 @@ export const ImageCard = ({ item, onProcess, onDownload, onRemove, onToggleSkip 
 
   return (
     <div className="relative border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm flex flex-col">
-      <button
-        onClick={() => onRemove(item.id)}
-        className="absolute top-1.5 right-1.5 z-10 p-1 text-gray-400 hover:text-gray-600 bg-white/80 hover:bg-white rounded-full transition-colors"
-        aria-label="Remove"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 6L6 18M6 6l12 12" />
-        </svg>
-      </button>
+      {item.status !== "processing" && (
+        <button
+          onClick={() => onRemove(item.id)}
+          className="absolute top-1.5 right-1.5 z-10 p-1 text-gray-400 hover:text-gray-600 bg-white/80 hover:bg-white rounded-full transition-colors"
+          aria-label="Remove"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      )}
       <div
         className="relative w-full aspect-square"
         style={

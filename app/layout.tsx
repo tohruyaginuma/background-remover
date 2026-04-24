@@ -29,9 +29,26 @@ const RootLayout = ({
     <body className="min-h-full flex flex-col">
       {children}
       <footer className="mt-auto border-t border-gray-200 bg-white py-3 px-4">
-        <p className="text-center text-xs text-gray-400">
-          {process.env.NEXT_PUBLIC_BUILD_VERSION}
-        </p>
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid grid-cols-3 items-center text-xs text-gray-400">
+            <div />
+            <span className="justify-self-center">{process.env.NEXT_PUBLIC_BUILD_VERSION}</span>
+            <a
+              href="https://ko-fi.com/D1D81YDSBE"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Buy Me a Coffee at ko-fi.com"
+              className="justify-self-end"
+            >
+              <img
+                src="https://storage.ko-fi.com/cdn/kofi2.png?v=6"
+                alt="Buy Me a Coffee at ko-fi.com"
+                style={{ border: 0, height: "28px" }}
+                height={28}
+              />
+            </a>
+          </div>
+        </div>
       </footer>
     </body>
   </html>

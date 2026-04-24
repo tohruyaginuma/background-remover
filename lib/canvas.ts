@@ -51,6 +51,8 @@ export const composeOnCanvas = async (
   canvas.height = settings.canvasHeight;
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("Failed to get canvas context");
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
 
   if (!settings.bgTransparent) {
     ctx.fillStyle = settings.bgColor;
