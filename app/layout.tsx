@@ -32,7 +32,18 @@ const RootLayout = ({
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-3 items-center text-xs text-gray-400">
             <div />
-            <span className="justify-self-center">{process.env.NEXT_PUBLIC_BUILD_VERSION}</span>
+            <span className="justify-self-center">
+              {process.env.NEXT_PUBLIC_BUILD_VERSION} {/* by{" "} */}
+              {/* <a
+                href="https://github.com/tohruyaginuma"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-gray-300 underline-offset-2 hover:text-gray-600"
+              >
+                ty
+              </a> */}
+            </span>
+            {/*
             <a
               href="https://ko-fi.com/D1D81YDSBE"
               target="_blank"
@@ -47,6 +58,7 @@ const RootLayout = ({
                 height={28}
               />
             </a>
+            */}
           </div>
         </div>
       </footer>
