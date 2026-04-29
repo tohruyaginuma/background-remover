@@ -71,20 +71,11 @@ export const SettingsPanel = ({ settings, onChange }: SettingsPanelProps) => {
               type="number"
               min={100}
               max={8000}
-              value={settings.canvasWidth}
-              onChange={(e) => update("canvasWidth", Number(e.target.value))}
+              value={settings.canvasSize}
+              onChange={(e) => update("canvasSize", Number(e.target.value))}
               className="w-20 border border-gray-300 rounded px-2 py-1 text-sm text-center"
             />
-            <span className="text-gray-400">×</span>
-            <input
-              type="number"
-              min={100}
-              max={8000}
-              value={settings.canvasHeight}
-              onChange={(e) => update("canvasHeight", Number(e.target.value))}
-              className="w-20 border border-gray-300 rounded px-2 py-1 text-sm text-center"
-            />
-            <span className="text-xs text-gray-400">px</span>
+            <span className="text-xs text-gray-400">px (square)</span>
           </div>
 
           {/* Padding */}

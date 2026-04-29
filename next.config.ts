@@ -1,13 +1,9 @@
 import type { NextConfig } from "next";
-
-const buildDate = new Date();
-const mm = String(buildDate.getMonth() + 1).padStart(2, "0");
-const dd = String(buildDate.getDate()).padStart(2, "0");
-const yyyy = buildDate.getFullYear();
+import { version } from "./package.json";
 
 const nextConfig: NextConfig = {
   env: {
-    NEXT_PUBLIC_BUILD_VERSION: `v${mm}.${dd}.${yyyy}`,
+    NEXT_PUBLIC_BUILD_VERSION: `v${version}`,
   },
 };
 

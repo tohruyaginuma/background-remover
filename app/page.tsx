@@ -106,7 +106,7 @@ const HomePage = () => {
           <p className="text-sm text-gray-400 mt-1">Create thumbnail images with automatic background removal.</p>
         </div>
 
-        <DropZone onFiles={handleFiles} />
+        <DropZone onFiles={handleFiles} disabled={isProcessing} />
 
         {items.length > 0 && (
           <div className="flex items-center justify-between gap-4 flex-wrap">

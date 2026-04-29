@@ -3,8 +3,7 @@ export type CompressionLevel = "max" | "soft" | "medium";
 export type Settings = {
   bgColor: string;
   bgTransparent: boolean;
-  canvasWidth: number;
-  canvasHeight: number;
+  canvasSize: number;
   padding: number;
   compression: CompressionLevel;
 };
@@ -34,8 +33,7 @@ export const QUALITY_MAP: Record<CompressionLevel, QualitySpec> = {
 export const DEFAULT_SETTINGS: Settings = {
   bgColor: "#ffffff",
   bgTransparent: false,
-  canvasWidth: 1800,
-  canvasHeight: 1800,
+  canvasSize: 1600,
   padding: 140,
   compression: "max",
 };

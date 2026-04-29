@@ -4,9 +4,10 @@ import { useRef, useState } from "react";
 
 type DropZoneProps = {
   onFiles: (files: File[]) => void;
+  disabled?: boolean;
 };
 
-export const DropZone = ({ onFiles }: DropZoneProps) => {
+export const DropZone = ({ onFiles, disabled = false }: DropZoneProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -18,23 +19,26 @@ export const DropZone = ({ onFiles }: DropZoneProps) => {
     if (accepted.length > 0) onFiles(accepted);
   };
 
+  const baseClass = "border-2 border-dashed rounded-xl p-10 text-center transition-colors min-h-64 flex flex-col items-center justify-center";
+  const stateClass = disabled
+    ? "border-gray-200 bg-gray-50 cursor-not-allowed opacity-50"
+    : isDragging
+      ? "border-blue-500 bg-blue-50 cursor-pointer"
+      : "border-gray-300 hover:border-gray-400 bg-gray-50 cursor-pointer";
+
   return (
     <div
-      className={`border-2 border-dashed rounded-xl p-10 text-center cursor-pointer transition-colors min-h-64 flex flex-col items-center justify-center ${
-        isDragging
-          ? "border-blue-500 bg-blue-50"
-          : "border-gray-300 hover:border-gray-400 bg-gray-50"
-      }`}
-      onClick={() => inputRef.current?.click()}
+      className={`${baseClass} ${stateClass}`}
+      onClick={() => { if (!disabled) inputRef.current?.click(); }}
       onDragOver={(e) => {
         e.preventDefault();
-        setIsDragging(true);
+        if (!disabled) setIsDragging(true);
       }}
       onDragLeave={() => setIsDragging(false)}
       onDrop={(e) => {
         e.preventDefault();
         setIsDragging(false);
-        handleFiles(e.dataTransfer.files);
+        if (!disabled) handleFiles(e.dataTransfer.files);
       }}
     >
       <p className="text-gray-500 text-sm">
@@ -48,6 +52,7 @@ export const DropZone = ({ onFiles }: DropZoneProps) => {
         multiple
         accept="image/jpeg,image/png,image/webp"
         className="hidden"
+        disabled={disabled}
         onChange={(e) => handleFiles(e.target.files)}
       />
     </div>

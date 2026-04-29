@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ChangelogModal } from "@/components/ChangelogModal";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,7 +34,7 @@ const RootLayout = ({
           <div className="grid grid-cols-3 items-center text-xs text-gray-400">
             <div />
             <span className="justify-self-center">
-              {process.env.NEXT_PUBLIC_BUILD_VERSION} {/* by{" "} */}
+              <ChangelogModal version={process.env.NEXT_PUBLIC_BUILD_VERSION ?? ""} /> {/* by{" "} */}
               {/* <a
                 href="https://github.com/tohruyaginuma"
                 target="_blank"
